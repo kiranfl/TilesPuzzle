@@ -1,4 +1,4 @@
-package com.fission.tilespuzle.fragments;
+package com.games.tilespuzzle.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.fission.tilespuzle.HomeActivity;
-import com.fission.tilespuzle.R;
+import com.games.tilespuzzle.HomeActivity;
+import com.games.tilespuzzle.R;
 
 import java.util.ArrayList;
 

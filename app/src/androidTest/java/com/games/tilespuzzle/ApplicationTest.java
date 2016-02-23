@@ -1,4 +1,4 @@
-package com.fission.tilespuzle;
+package com.games.tilespuzzle;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

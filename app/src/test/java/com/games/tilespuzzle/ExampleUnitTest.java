@@ -1,4 +1,4 @@
-package com.fission.tilespuzle;
+package com.games.tilespuzzle;
 
 import org.junit.Test;
 

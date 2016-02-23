@@ -1,14 +1,15 @@
-package com.fission.tilespuzle;
+package com.games.tilespuzzle;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+
+
 /**
- * Created by kiran on 1/16/2016.
+ * @author kiran on 1/16/2016.
  */
 public class SplashActivity extends AppCompatActivity {
 

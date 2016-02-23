@@ -1,4 +1,4 @@
-package com.fission.tilespuzle;
+package com.games.tilespuzzle;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -10,10 +10,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.fission.tilespuzle.fragments.ChooseImageFragment;
-import com.fission.tilespuzle.fragments.GameBoard1Fragment;
-import com.fission.tilespuzle.fragments.GameBoard2Fragment;
-import com.fission.tilespuzle.fragments.HelpFragment;
+import com.games.tilespuzzle.fragments.ChooseImageFragment;
+import com.games.tilespuzzle.fragments.GameBoard1Fragment;
+import com.games.tilespuzzle.fragments.GameBoard2Fragment;
+import com.games.tilespuzzle.fragments.HelpFragment;
 
 /**
  * @author kiran on 1/17/2016.

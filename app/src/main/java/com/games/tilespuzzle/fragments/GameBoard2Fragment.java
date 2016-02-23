@@ -1,4 +1,4 @@
-package com.fission.tilespuzle.fragments;
+package com.games.tilespuzzle.fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -24,9 +24,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.fission.tilespuzle.HomeActivity;
-import com.fission.tilespuzle.R;
-import com.fission.tilespuzle.utils.Utils;
+import com.games.tilespuzzle.HomeActivity;
+import com.games.tilespuzzle.R;
+import com.games.tilespuzzle.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.fission.tilespuzle.fragments;
+package com.games.tilespuzzle.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,9 +16,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-import com.fission.tilespuzle.HomeActivity;
-import com.fission.tilespuzle.R;
-import com.fission.tilespuzle.adapter.GridAdapter;
+import com.games.tilespuzzle.HomeActivity;
+import com.games.tilespuzzle.R;
+import com.games.tilespuzzle.adapter.GridAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;

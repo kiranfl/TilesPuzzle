@@ -1,37 +1,39 @@
-package com.fission.tilespuzle.adapter;
+package com.games.tilespuzzle.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.fission.tilespuzle.R;
+
+import com.games.tilespuzzle.R;
+
+import java.util.ArrayList;
 
 /**
- * @author kiran on 1/28/2016.
+ * @author  kiran on 1/18/2016.
  */
-public class GameBoardAdapter extends BaseAdapter {
+public class GridAdapter extends BaseAdapter {
 
 
     private Context mContext;
-    private Bitmap mBitmap[];
+    private ArrayList<Integer> resIds;
 
-    public GameBoardAdapter(Context c, Bitmap bitmap[]) {
+    public GridAdapter(Context c, ArrayList<Integer> resIds) {
         mContext = c;
-        mBitmap = bitmap;
+        this.resIds = resIds;
     }
 
     @Override
     public int getCount() {
-        return mBitmap.length;
+        return resIds.size();
     }
 
     @Override
-    public Bitmap getItem(int position) {
-        return mBitmap[position];
+    public Integer getItem(int position) {
+        return resIds.get(position);
     }
 
     @Override
@@ -45,16 +47,13 @@ public class GameBoardAdapter extends BaseAdapter {
         View view;
         LayoutInflater inflater = (LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.game_board_item, null);
+        view = inflater.inflate(R.layout.grid_item, null);
 
         ImageView img = (ImageView) view.findViewById(R.id.imageicon);
-        img.setImageBitmap(getItem(position));
+        img.setImageResource(getItem(position));
 
         return view;
     }
 
 
 }
-
-
-

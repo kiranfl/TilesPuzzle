@@ -1,4 +1,4 @@
-package com.fission.tilespuzle.utils;
+package com.games.tilespuzzle.utils;
 
 import android.app.ProgressDialog;
 import android.content.Context;

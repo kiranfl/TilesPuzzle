@@ -1,4 +1,4 @@
-package com.fission.tilespuzle.fragments;
+package com.games.tilespuzzle.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fission.tilespuzle.R;
+import com.games.tilespuzzle.R;
+
 
 /**
  * @author kiran on 2/20/2016.
