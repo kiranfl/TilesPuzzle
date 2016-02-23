@@ -205,8 +205,6 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
 
             blankImage = (ImageView) view.findViewById(blankId);
 
-//        xPos = event.getRawX();
-//        yPos = event.getRawY();
 
             if (right == 1) {
 //		    	 if(event.getRawX()>=xPos+5)
@@ -364,15 +362,9 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
 
         blankImage = (ImageView) view.findViewById(blankId);
 
-//        xPos = event.getRawX();
-//        yPos = event.getRawY();
 
         if (right == 1) {
-//		    	 if(event.getRawX()>=xPos+5)
-            {
                 right = 0;
-              //  disableAll();
-                blankImage.setVisibility(View.INVISIBLE);
                 v.setX(blankImage.getX());
                 v.setId(blankId);
                 blankImage.setX(tempX);
@@ -382,41 +374,10 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                 left = 0;
                 up = 0;
                 down = 0;
-//                        enableAll();
-                blankImage.setVisibility(View.VISIBLE);
                 checkNeighbourViews();
-
-                /*v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator anim) {
-
-                        blankImage.setVisibility(View.INVISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator anim) {
-                        super.onAnimationEnd(anim);
-
-                        v.setX(blankImage.getX());
-                        v.setId(blankId);
-                        blankImage.setX(tempX);
-                        blankImage.setId(id);
-                        blankId = blankImage.getId();
-                        right = 0;
-                        left = 0;
-                        up = 0;
-                        down = 0;
-//                        enableAll();
-                        blankImage.setVisibility(View.VISIBLE);
-                        checkNeighbourViews();
-                    }
-                }).start();
-*/            }
         }
         if (left == 1) {
             left = 0;
-//            disableAll();
-            blankImage.setVisibility(View.INVISIBLE);
             v.setX(blankImage.getX());
             v.setId(blankId);
             blankImage.setX(tempX);
@@ -426,39 +387,10 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//                    enableAll();
-            blankImage.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-
-           /* v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-
-                    blankImage.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setX(blankImage.getX());
-                    v.setId(blankId);
-                    blankImage.setX(tempX);
-                    blankImage.setId(id);
-                    blankId = blankImage.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-//                    enableAll();
-                    blankImage.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
         }
         if (up == 1) {
             up = 0;
-//            disableAll();
-            blankImage.setVisibility(View.INVISIBLE);
             v.setY(blankImage.getY());
             v.setId(blankId);
             blankImage.setY(tempY);
@@ -468,39 +400,10 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//                    enableAll();
-            blankImage.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-
-            /*v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-
-                    blankImage.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setY(blankImage.getY());
-                    v.setId(blankId);
-                    blankImage.setY(tempY);
-                    blankImage.setId(id);
-                    blankId = blankImage.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-//                    enableAll();
-                    blankImage.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
         }
         if (down == 1) {
             down = 0;
-//            disableAll();
-            blankImage.setVisibility(View.INVISIBLE);
             v.setY(blankImage.getY());
             v.setId(blankId);
             blankImage.setY(tempY);
@@ -510,33 +413,7 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//                    enableAll();
-            blankImage.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-            /*
-            v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-                    blankImage.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setY(blankImage.getY());
-                    v.setId(blankId);
-                    blankImage.setY(tempY);
-                    blankImage.setId(id);
-                    blankId = blankImage.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-//                    enableAll();
-                    blankImage.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
         }
 
     }
@@ -628,7 +505,7 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
     }
 
     private void showHelpDialog() {
-        final Dialog dialog = new Dialog(getActivity()){
+        final Dialog dialog = new Dialog(getActivity()) {
             @Override
             public boolean onTouchEvent(MotionEvent event) {
                 this.dismiss();

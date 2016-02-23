@@ -227,58 +227,9 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
 
         lastTileIV = (ImageView) view.findViewById(lastTileId);
 
-//        xPos = event.getRawX();
-//        yPos = event.getRawY();
 
         if (right == 1) {
-//		    	 if(event.getRawX()>=xPos+5)
-            {
-                right = 0;
-                lastTileIV.setVisibility(View.INVISIBLE);
-                v.setX(lastTileIV.getX());
-                v.setId(lastTileId);
-                lastTileIV.setX(tempX);
-                lastTileIV.setId(id);
-                lastTileId = lastTileIV.getId();
-                right = 0;
-                left = 0;
-                up = 0;
-                down = 0;
-//                enableAll();
-                lastTileIV.setVisibility(View.VISIBLE);
-                checkNeighbourViews();
-               // disableAll();
-               /* v.animate().x(lastTileIV.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator anim) {
-
-                        lastTileIV.setVisibility(View.INVISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator anim) {
-                        super.onAnimationEnd(anim);
-
-                        v.setX(lastTileIV.getX());
-                        v.setId(lastTileId);
-                        lastTileIV.setX(tempX);
-                        lastTileIV.setId(id);
-                        lastTileId = lastTileIV.getId();
-                        right = 0;
-                        left = 0;
-                        up = 0;
-                        down = 0;
-                        enableAll();
-                        lastTileIV.setVisibility(View.VISIBLE);
-                        checkNeighbourViews();
-                    }
-                }).start();*/
-            }
-        }
-        if (left == 1) {
-            left = 0;
-           // disableAll();
-            lastTileIV.setVisibility(View.INVISIBLE);
+            right = 0;
             v.setX(lastTileIV.getX());
             v.setId(lastTileId);
             lastTileIV.setX(tempX);
@@ -288,38 +239,23 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//            enableAll();
-            lastTileIV.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-            /*v.animate().x(lastTileIV.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-
-                    lastTileIV.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setX(lastTileIV.getX());
-                    v.setId(lastTileId);
-                    lastTileIV.setX(tempX);
-                    lastTileIV.setId(id);
-                    lastTileId = lastTileIV.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-                    enableAll();
-                    lastTileIV.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
+        }
+        if (left == 1) {
+            left = 0;
+            v.setX(lastTileIV.getX());
+            v.setId(lastTileId);
+            lastTileIV.setX(tempX);
+            lastTileIV.setId(id);
+            lastTileId = lastTileIV.getId();
+            right = 0;
+            left = 0;
+            up = 0;
+            down = 0;
+            checkNeighbourViews();
         }
         if (up == 1) {
             up = 0;
-           // disableAll();
-            lastTileIV.setVisibility(View.INVISIBLE);
             v.setY(lastTileIV.getY());
             v.setId(lastTileId);
             lastTileIV.setY(tempY);
@@ -329,38 +265,10 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//            enableAll();
-            lastTileIV.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-
-            /*v.animate().y(lastTileIV.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-
-                    lastTileIV.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setY(lastTileIV.getY());
-                    v.setId(lastTileId);
-                    lastTileIV.setY(tempY);
-                    lastTileIV.setId(id);
-                    lastTileId = lastTileIV.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-                    enableAll();
-                    lastTileIV.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
         }
         if (down == 1) {
             down = 0;
-            lastTileIV.setVisibility(View.INVISIBLE);
             v.setY(lastTileIV.getY());
             v.setId(lastTileId);
             lastTileIV.setY(tempY);
@@ -370,33 +278,7 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
             left = 0;
             up = 0;
             down = 0;
-//            enableAll();
-            lastTileIV.setVisibility(View.VISIBLE);
             checkNeighbourViews();
-            //disableAll();
-           /* v.animate().y(lastTileIV.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-                    lastTileIV.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                    super.onAnimationEnd(anim);
-                    v.setY(lastTileIV.getY());
-                    v.setId(lastTileId);
-                    lastTileIV.setY(tempY);
-                    lastTileIV.setId(id);
-                    lastTileId = lastTileIV.getId();
-                    right = 0;
-                    left = 0;
-                    up = 0;
-                    down = 0;
-                    enableAll();
-                    lastTileIV.setVisibility(View.VISIBLE);
-                    checkNeighbourViews();
-                }
-            }).start();*/
         }
 
     }
@@ -608,7 +490,7 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
     }
 
     private void showHelpDialog() {
-        final Dialog dialog = new Dialog(getActivity()){
+        final Dialog dialog = new Dialog(getActivity()) {
             @Override
             public boolean onTouchEvent(MotionEvent event) {
                 this.dismiss();
