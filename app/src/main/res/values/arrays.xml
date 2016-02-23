@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="selection_targets">
+        <item>@drawable/gallery</item>
+        <item>@drawable/image1</item>
+        <item>@drawable/image2</item>
+        <item>@drawable/image3</item>
+        <item>@drawable/image4</item>
+        <item>@drawable/image5</item>
+        <item>@drawable/image6</item>
+        <item>@drawable/image7</item>
+        <item>@drawable/image8</item>
+        <item>@drawable/image9</item>
+        <item>@drawable/image10</item>
+        <item>@drawable/image11</item>
+    </array>
+
+    <array name="order">
+        <item>Simple (3*3)</item>
+        <item>Medium (4*4)</item>
+        <item>Hard (5*5)</item>
+    </array>
+
+    <array name="game_type">
+        <item>GameType 1</item>
+        <item>GameType 2</item>
+    </array>
+</resources>
