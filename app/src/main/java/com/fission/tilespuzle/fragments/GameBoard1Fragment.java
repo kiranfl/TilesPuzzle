@@ -4,12 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,6 +48,7 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
     float tempX, tempY;
     private View view;
     private int num_cols;
+    private SharedPreferences mSharedPreferences;
     private int mIdsArray[] = {R.id.img1, R.id.img2, R.id.img3, R.id.img4, R.id.img5, R.id.img6, R.id.img7, R.id.img8, R.id.img9, R.id.img10,
             R.id.img11, R.id.img12, R.id.img13, R.id.img14, R.id.img15, R.id.img16, R.id.img17, R.id.img18, R.id.img19, R.id.img20, R.id.img21,
             R.id.img22, R.id.img23, R.id.img24, R.id.img25};
@@ -139,6 +142,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                 helpRL.setVisibility(View.VISIBLE);
             }
         });
+
+        mSharedPreferences = ((HomeActivity)getActivity()).sharedPreferences;
         return view;
     }
 
@@ -436,7 +441,12 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
         } else {
             Utils.hideProgressBar();
             enableAll();
-            showHelpDialog();
+            if(mSharedPreferences.getBoolean("showhelp_1", true)) {
+                SharedPreferences.Editor edit= mSharedPreferences.edit();
+                edit.putBoolean("showhelp_1", false);
+                edit.apply();
+                showHelpDialog();
+            }
         }
 
     }
@@ -498,6 +508,7 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
         AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.setCancelable(false);
         alertDialog.setMessage("Change Level and GameType and play agin with same pic or other");
+        alertDialog.getWindow().getAttributes().gravity = Gravity.BOTTOM;
         alertDialog.show();
     }
 

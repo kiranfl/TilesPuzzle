@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public Bitmap splitImages[];
     public Bitmap previewImg;
+    public SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         mActionBar = getSupportActionBar();
         mActionBar.hide();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Preferences", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Preferences", MODE_PRIVATE);
         boolean isFirstTime = sharedPreferences.getBoolean("isFirstTime", true);
 
         mFragmentManager = getSupportFragmentManager();

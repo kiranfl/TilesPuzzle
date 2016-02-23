@@ -4,12 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -38,6 +40,7 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
     private int lastTileId;
     private RelativeLayout helpRL;
     int right, left, down, up;
+    private SharedPreferences mSharedPreferences;
     public ImageView lastTileIV, previewSmallImg, previewBigImg;
     private ArrayList<ImageView> neighbourViews = new ArrayList<>();
     private Random random = new Random();
@@ -142,6 +145,7 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
                 helpRL.setVisibility(View.VISIBLE);
             }
         });
+        mSharedPreferences = ((HomeActivity)getActivity()).sharedPreferences;
         return view;
     }
 
@@ -304,7 +308,12 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
         } else {
             Utils.hideProgressBar();
             enableAll();
-            showHelpDialog();
+            if(mSharedPreferences.getBoolean("showhelp_2", true)){
+                SharedPreferences.Editor edit= mSharedPreferences.edit();
+                edit.putBoolean("showhelp_2", false);
+                edit.apply();
+                showHelpDialog();
+            }
         }
 
     }
@@ -486,6 +495,7 @@ public class GameBoard2Fragment extends Fragment implements View.OnTouchListener
         AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.setCancelable(false);
         alertDialog.setMessage("Change Level and GameType and play agin with same pic or other");
+        alertDialog.getWindow().getAttributes().gravity = Gravity.BOTTOM;
         alertDialog.show();
     }
 
