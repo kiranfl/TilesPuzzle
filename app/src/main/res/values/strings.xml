@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">TilesPuzle</string>
+    <string name="app_name">TilesPuzzle</string>
     <string name="please_wait">Please wait while tiles are reshuffled"</string>
 </resources>
