@@ -136,14 +136,14 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
         mStartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.showProgressBar(getActivity(), "Please Wait");
-                moveTilesAutomatically(img[num_cols * num_cols - 2]);
+                Utils.showProgressBar(getActivity(), getResources().getString(R.string.please_wait));
+                moveTilesAutomatically(img[num_cols * num_cols - 2], 5);
                 mStartBtn.setVisibility(View.GONE);
                 helpRL.setVisibility(View.VISIBLE);
             }
         });
 
-        mSharedPreferences = ((HomeActivity)getActivity()).sharedPreferences;
+        mSharedPreferences = ((HomeActivity) getActivity()).sharedPreferences;
         return view;
     }
 
@@ -219,7 +219,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                     v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationStart(Animator anim) {
-                            v.setZ(1);blankImage.setZ(0);
+                            v.setZ(1);
+                            blankImage.setZ(0);
                         }
 
                         @Override
@@ -236,7 +237,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                             up = 0;
                             down = 0;
                             enableAll();
-                            v.setZ(0);blankImage.setZ(1);
+                            v.setZ(0);
+                            blankImage.setZ(1);
                             checkIsGameOver();
                         }
                     }).start();
@@ -248,7 +250,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                 v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator anim) {
-                        v.setZ(1);blankImage.setZ(0);
+                        v.setZ(1);
+                        blankImage.setZ(0);
                     }
 
                     @Override
@@ -264,7 +267,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                         up = 0;
                         down = 0;
                         enableAll();
-                        v.setZ(0);blankImage.setZ(1);
+                        v.setZ(0);
+                        blankImage.setZ(1);
                         checkIsGameOver();
                     }
                 }).start();
@@ -275,7 +279,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                 v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator anim) {
-                        v.setZ(1);blankImage.setZ(0);
+                        v.setZ(1);
+                        blankImage.setZ(0);
                     }
 
                     @Override
@@ -291,7 +296,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                         up = 0;
                         down = 0;
                         enableAll();
-                        v.setZ(0);blankImage.setZ(1);
+                        v.setZ(0);
+                        blankImage.setZ(1);
                         checkIsGameOver();
                     }
                 }).start();
@@ -302,7 +308,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                 v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator anim) {
-                     v.setZ(1);blankImage.setZ(0);
+                        v.setZ(1);
+                        blankImage.setZ(0);
                     }
 
                     @Override
@@ -318,7 +325,8 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
                         up = 0;
                         down = 0;
                         enableAll();
-                        v.setZ(0);blankImage.setZ(1);
+                        v.setZ(0);
+                        blankImage.setZ(1);
                         checkIsGameOver();
                     }
                 }).start();
@@ -327,7 +335,7 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
         }
     }
 
-    private void moveTilesAutomatically(final View v) {
+    private void moveTilesAutomatically(final View v, int animDuration) {
         moves++;
         if (blankId == v.getId() + 1) {
             if ((view.findViewById(v.getId()).getX() + view.findViewById(v.getId()).getWidth()) < (view.findViewById(mIdsArray[4]).getX() + view.findViewById(mIdsArray[4]).getWidth()))
@@ -366,56 +374,102 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
 
 
         if (right == 1) {
-                right = 0;
-                v.setX(blankImage.getX());
-                v.setId(blankId);
-                blankImage.setX(tempX);
-                blankImage.setId(id);
-                blankId = blankImage.getId();
-                right = 0;
-                left = 0;
-                up = 0;
-                down = 0;
-                checkNeighbourViews();
+            right = 0;
+            v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationStart(Animator anim) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animator anim) {
+                    super.onAnimationEnd(anim);
+                    v.setX(blankImage.getX());
+                    v.setId(blankId);
+                    blankImage.setX(tempX);
+                    blankImage.setId(id);
+                    blankId = blankImage.getId();
+                    right = 0;
+                    left = 0;
+                    up = 0;
+                    down = 0;
+                    checkNeighbourViews();
+                }
+            }).start();
+
+
         }
         if (left == 1) {
             left = 0;
-            v.setX(blankImage.getX());
-            v.setId(blankId);
-            blankImage.setX(tempX);
-            blankImage.setId(id);
-            blankId = blankImage.getId();
-            right = 0;
-            left = 0;
-            up = 0;
-            down = 0;
-            checkNeighbourViews();
+            v.animate().x(blankImage.getX()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationStart(Animator anim) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animator anim) {
+                    super.onAnimationEnd(anim);
+                    v.setX(blankImage.getX());
+                    v.setId(blankId);
+                    blankImage.setX(tempX);
+                    blankImage.setId(id);
+                    blankId = blankImage.getId();
+                    right = 0;
+                    left = 0;
+                    up = 0;
+                    down = 0;
+                    checkNeighbourViews();
+                }
+            }).start();
         }
         if (up == 1) {
             up = 0;
-            v.setY(blankImage.getY());
-            v.setId(blankId);
-            blankImage.setY(tempY);
-            blankImage.setId(id);
-            blankId = blankImage.getId();
-            right = 0;
-            left = 0;
-            up = 0;
-            down = 0;
-            checkNeighbourViews();
+            v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationStart(Animator anim) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animator anim) {
+                    super.onAnimationEnd(anim);
+                    v.setY(blankImage.getY());
+                    v.setId(blankId);
+                    blankImage.setY(tempY);
+                    blankImage.setId(id);
+                    blankId = blankImage.getId();
+                    right = 0;
+                    left = 0;
+                    up = 0;
+                    down = 0;
+                    checkNeighbourViews();
+                }
+            }).start();
+
+
         }
         if (down == 1) {
             down = 0;
-            v.setY(blankImage.getY());
-            v.setId(blankId);
-            blankImage.setY(tempY);
-            blankImage.setId(id);
-            blankId = blankImage.getId();
-            right = 0;
-            left = 0;
-            up = 0;
-            down = 0;
-            checkNeighbourViews();
+            v.animate().y(blankImage.getY()).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationStart(Animator anim) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animator anim) {
+                    super.onAnimationEnd(anim);
+                    v.setY(blankImage.getY());
+                    v.setId(blankId);
+                    blankImage.setY(tempY);
+                    blankImage.setId(id);
+                    blankId = blankImage.getId();
+                    right = 0;
+                    left = 0;
+                    up = 0;
+                    down = 0;
+                    checkNeighbourViews();
+                }
+            }).start();
+
+
         }
 
     }
@@ -435,14 +489,13 @@ public class GameBoard1Fragment extends Fragment implements View.OnTouchListener
             if ((blankImage.getY() + blankImage.getHeight()) < (view.findViewById(mIdsArray[24]).getY() + view.findViewById(mIdsArray[24]).getHeight())) {
                 neighbourViews.add((ImageView) view.findViewById(blankId + 5));
             }
-
             int index = random.nextInt(neighbourViews.size());
-            moveTilesAutomatically(neighbourViews.get(index));
+            moveTilesAutomatically(neighbourViews.get(index), 5);
         } else {
             Utils.hideProgressBar();
             enableAll();
-            if(mSharedPreferences.getBoolean("showhelp_1", true)) {
-                SharedPreferences.Editor edit= mSharedPreferences.edit();
+            if (mSharedPreferences.getBoolean("showhelp_1", true)) {
+                SharedPreferences.Editor edit = mSharedPreferences.edit();
                 edit.putBoolean("showhelp_1", false);
                 edit.apply();
                 showHelpDialog();
